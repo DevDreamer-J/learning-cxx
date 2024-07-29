@@ -26,13 +26,14 @@ public:
 	// NOTICE: ⚠ 注意移动到自身问题 ⚠
 	DynFibonacci& operator=(DynFibonacci&& other) noexcept {
 		if (this != &other) {
-			cache = std::move(other.cache), cached = std::move(other.cached);
+			cache = std::move(other.cache);
+			cached = std::move(other.cached);
 		}
 		return *this;
 	};
 
 	// TODO: 实现析构器，释放缓存空间
-	~DynFibonacci() {};
+    ~DynFibonacci(){};
 
 	// TODO: 实现正确的缓存优化斐波那契计算
 	size_t operator[](int i) const {
