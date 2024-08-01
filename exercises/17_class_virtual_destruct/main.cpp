@@ -11,7 +11,7 @@ struct A {
     A() {
         ++num_a;
     }
-    ~A() {
+    virtual ~A() {
         --num_a;
     }
 
@@ -63,7 +63,7 @@ int main(int argc, char **argv) {
     // TODO: ---- 以下代码不要修改，通过改正类定义解决编译问题 ----
     delete ab;// 通过指针可以删除指向的对象，即使是多态对象
     ASSERT(A::num_a == 0, "Every A was destroyed");
-    ASSERT(B::num_b == 1, "Every B was destroyed");
+    ASSERT(B::num_b == 0, "Every B was destroyed");
 
     return 0;
 }
